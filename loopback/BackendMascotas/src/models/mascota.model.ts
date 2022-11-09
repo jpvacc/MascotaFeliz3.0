@@ -24,10 +24,10 @@ export class Mascota extends Entity {
   foto: string;
 
   @property({
-    type: 'number',
+    type: 'string',
     required: true,
   })
-  estado: number;
+  estado: string;
 
   @property({
     type: 'string',
