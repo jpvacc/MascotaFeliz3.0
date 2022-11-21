@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -25,7 +26,8 @@ export class MascotaController {
     @repository(MascotaRepository)
     public mascotaRepository : MascotaRepository,
   ) {}
-
+  
+  
   @post('/mascotas')
   @response(200, {
     description: 'Mascota model instance',
@@ -47,6 +49,7 @@ export class MascotaController {
     return this.mascotaRepository.create(mascota);
   }
 
+  @authenticate("admin")
   @get('/mascotas/count')
   @response(200, {
     description: 'Mascota model count',

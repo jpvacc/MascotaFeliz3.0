@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import { service } from '@loopback/core';
 import {
   Count,
@@ -63,7 +64,7 @@ export class UsuarioController {
 
   }
 
-
+  @authenticate("admin")
   @post('/usuarios')
   @response(200, {
     description: 'Usuario model instance',
