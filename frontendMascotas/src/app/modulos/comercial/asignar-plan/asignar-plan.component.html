@@ -1,0 +1,61 @@
+
+<a routerLink="/administracion/buscar-plan" class="btn">Volver</a>
+<table class="table responsive">
+    <thead>
+        <tr>
+            <th>
+                nombre
+            </th>
+            <th>
+                foto
+            </th>
+            <th>
+                estado
+            </th>
+            <th>
+                especie
+            </th>
+            <th>
+                comentario
+            </th>
+            <th>
+                id usuario
+            </th>
+            <th>
+                id Plan
+            </th>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of listadoRegistros">
+            <td>
+                {{p.nombre}}
+            </td>
+            <td>
+               <img src="{{p.foto}}" class="foto-mascota"/>
+            </td>
+            <td>
+                {{p.estado}}
+            </td>
+            <td>
+                {{p.especie}}
+            </td>
+            <td>
+                {{p.comentario}}
+            </td>
+            <td>
+                {{p.usuarioId}}
+            </td>
+            <td>
+                {{p.planId}}
+            </td>
+
+
+        </tr>
+
+    </tbody>
+
+
+</table>
+

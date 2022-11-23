@@ -1,0 +1,14 @@
+<nav>
+    <div class="nav-wrapper" style="background-color: #333 !important;">
+      <a routerLink="/inicio" class="brand-logo"> <a href="/inicio" class="brand-logo"><img src="https://www.losolivosbogota.com/landing_mercadeo/img/ICONOMASCOTAS-01.png" style="width: 70px; padding-top: 10px; padding-left: 10px;" /> </a>
+      </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li *ngIf="seInicioSesion"><a routerLink="/administracion/buscar-usuario">Usuarios</a></li>
+        <li *ngIf="seInicioSesion"><a routerLink="/administracion/buscar-sucursal">Sucursales</a></li>
+        <li *ngIf="seInicioSesion"><a routerLink="/administracion/buscar-plan">Planes</a></li>
+        <li *ngIf="seInicioSesion"><a routerLink="/administracion/buscar-prospecto">Solicitudes</a></li>
+        <li *ngIf="!seInicioSesion"><a routerLink="/seguridad/identificacion">Iniciar sesion</a></li>
+        <li *ngIf="seInicioSesion"><a routerLink="/seguridad/cerrar-sesion">Cerrar sesion</a></li>
+      </ul>
+    </div>
+  </nav>

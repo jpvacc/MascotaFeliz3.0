@@ -49,11 +49,11 @@ export class UsuarioController {
       let token = this.servicioAutenticacion.GenerarTokenJWT(u);
       return{
         datos: {
+          id: u.id,
           nombre: u.nombre,
           apellido: u.apellido,
           coreo: u.correo,
-          telefono: u.telefono,
-          id: u.id
+          rol: u.rol
         },
         tk: token
       }
@@ -64,7 +64,7 @@ export class UsuarioController {
 
   }
 
-  @authenticate("admin")
+  //@authenticate("admin")
   @post('/usuarios')
   @response(200, {
     description: 'Usuario model instance',
@@ -88,7 +88,7 @@ export class UsuarioController {
     usuario.contrasena = claveCifrada;
     let u = await this.usuarioRepository.create(usuario);
 
-    // enviar correo a ususario
+    // enviar correo a usuario
     let destino = usuario.correo
     let asunto = 'Bienvenido y credenciales de acceso a la app'
     let contenido = `Hola ${usuario.nombre}, su usuario es ${usuario.correo} y la contraseña es ${clave}`;
@@ -112,6 +112,7 @@ export class UsuarioController {
     return this.usuarioRepository.count(where);
   }
 
+ // @authenticate("admin")
   @get('/usuarios')
   @response(200, {
     description: 'Array of Usuario model instances',
